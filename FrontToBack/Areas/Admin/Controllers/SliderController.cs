@@ -17,12 +17,17 @@ namespace FrontToBack.Areas.Admin.Controllers
             return View(sliders);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Create(Slider slider)
         {
             _context.Sliders.Add(slider);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
